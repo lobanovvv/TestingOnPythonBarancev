@@ -11,7 +11,7 @@ class test_add_group(unittest.TestCase):
         self.wd.get('http://localhost/addressbook')
 
     def test_add_group(self):
-        #LOGIN
+    #LOGIN
         #Enter login
         time.sleep(1)
         el = self.wd.find_element_by_css_selector('input:nth-of-type(1)')
@@ -26,7 +26,7 @@ class test_add_group(unittest.TestCase):
         el.click()
 
 
-        #GROUP
+    #GROUP
         #Jump to group tab
         el = self.wd.find_element_by_link_text('groups')
         el.click()

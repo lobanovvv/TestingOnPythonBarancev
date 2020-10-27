@@ -10,10 +10,15 @@ class test_add_group(unittest.TestCase):
         self.wd = webdriver.Chrome()
         self.wd.implicitly_wait(3)
         self.wd.set_window_size(1920,1080)
-        self.wd.get('http://localhost/addressbook')
+        
 
     def test_add_group(self):
+        #Init wd
         wd = self.wd
+
+        #Open home page
+        wd.get('http://localhost/addressbook')
+        
         #LOGIN
         #Enter login
         time.sleep(1)
@@ -53,6 +58,10 @@ class test_add_group(unittest.TestCase):
 
         #Submit
         el = wd.find_element_by_css_selector("input[type=submit]")
+        el.click()
+
+        #Logout
+        el = wd.find_element_by_link_text('Logout')
         el.click()
 
     def tearDown(self):

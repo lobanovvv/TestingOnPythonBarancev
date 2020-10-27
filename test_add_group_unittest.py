@@ -11,7 +11,7 @@ class test_add_group(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, name='admin', password='secret')
         self.open_group_page(wd)
-        self.create_group(wd)
+        self.create_group(wd, name="a", header="a", footer="a")
         self.logout(wd)
 
     def setUp(self):
@@ -23,23 +23,18 @@ class test_add_group(unittest.TestCase):
         el = wd.find_element_by_link_text('Logout')
         el.click()
 
-    def create_group(self, wd):
+    def create_group(self, wd, name, header, footer):
         #Click new group button
         el = wd.find_element_by_css_selector('input[name="new"]:nth-of-type(1)')
         el.click()
 
         #Enter value in fields
-        el_name = [
-            'input[name="group_name"]',
-            'textarea[name="group_header"]',
-            'textarea[name="group_footer"]'
-        ]
-        abcdefg = ['a', 'b', 'c', 'd', 'e', 'f','g']
-
-        for i in el_name:
-            el = wd.find_element_by_css_selector(i)
-            shuffle(abcdefg)
-            el.send_keys(abcdefg)
+        el = wd.find_element_by_name('group_name')
+        el.send_keys(name)
+        el = wd.find_element_by_name('group_header')
+        el.send_keys(header)
+        el = wd.find_element_by_name('group_footer')
+        el.send_keys(footer)
 
         #Submit
         el = wd.find_element_by_css_selector("input[type=submit]")

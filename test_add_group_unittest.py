@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from selenium import webdriver
 from random import shuffle
 import time, unittest
@@ -53,7 +55,8 @@ class test_add_group(unittest.TestCase):
         el = wd.find_element_by_css_selector("input[type=submit]")
         el.click()
 
-        wd.quit()
+    def tearDown(self):
+        self.wd.quit()
 
 
 if __name__ == '__main__':

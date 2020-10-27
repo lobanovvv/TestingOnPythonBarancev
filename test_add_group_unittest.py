@@ -6,19 +6,18 @@ import time, unittest
 
 class test_add_group(unittest.TestCase):
 
+    def test_add_group(self):
+        wd = self.wd
+        self.open_home_page(wd)
+        self.login(wd, name='admin', password='secret')
+        self.open_group_page(wd)
+        self.create_group(wd)
+        self.logout(wd)
+
     def setUp(self):
         self.wd = webdriver.Chrome()
         self.wd.implicitly_wait(3)
         self.wd.set_window_size(1920,1080)
-        
-
-    def test_add_group(self):
-        wd = self.wd
-        self.open_home_page(wd)
-        self.login(wd)
-        self.open_group_page(wd)
-        self.create_group(wd)
-        self.logout(wd)
 
     def logout(self, wd):
         el = wd.find_element_by_link_text('Logout')
@@ -50,15 +49,15 @@ class test_add_group(unittest.TestCase):
         el = wd.find_element_by_link_text('groups')
         el.click()
 
-    def login(self, wd):
+    def login(self, wd, name, password):
         #Enter login
         time.sleep(1)
         el = wd.find_element_by_css_selector('input:nth-of-type(1)')
-        el.send_keys('admin')
+        el.send_keys(name)
 
         #Enter password
         el = wd.find_element_by_css_selector('input:nth-of-type(2)')
-        el.send_keys('secret')
+        el.send_keys(password)
 
         #Click button Login
         el = wd.find_element_by_css_selector('input[type="submit"]')

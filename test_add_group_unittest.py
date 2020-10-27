@@ -13,33 +13,19 @@ class test_add_group(unittest.TestCase):
         
 
     def test_add_group(self):
-        #Init wd
         wd = self.wd
+        self.open_home_page(wd)
+        self.login(wd)
+        self.open_group_page(wd)
+        self.create_group(wd)
+        self.logout(wd)
 
-        #Open home page
-        wd.get('http://localhost/addressbook')
-        
-        #LOGIN
-        #Enter login
-        time.sleep(1)
-        el = wd.find_element_by_css_selector('input:nth-of-type(1)')
-        el.send_keys('admin')
-
-        #Enter password
-        el = wd.find_element_by_css_selector('input:nth-of-type(2)')
-        el.send_keys('secret')
-
-        #Click button Login
-        el = wd.find_element_by_css_selector('input[type="submit"]')
+    def logout(self, wd):
+        el = wd.find_element_by_link_text('Logout')
         el.click()
 
-
-        #GROUP
-        #Jump to group tab
-        el = wd.find_element_by_link_text('groups')
-        el.click()
-
-        #Create new group
+    def create_group(self, wd):
+        #Click new group button
         el = wd.find_element_by_css_selector('input[name="new"]:nth-of-type(1)')
         el.click()
 
@@ -60,9 +46,26 @@ class test_add_group(unittest.TestCase):
         el = wd.find_element_by_css_selector("input[type=submit]")
         el.click()
 
-        #Logout
-        el = wd.find_element_by_link_text('Logout')
+    def open_group_page(self, wd):
+        el = wd.find_element_by_link_text('groups')
         el.click()
+
+    def login(self, wd):
+        #Enter login
+        time.sleep(1)
+        el = wd.find_element_by_css_selector('input:nth-of-type(1)')
+        el.send_keys('admin')
+
+        #Enter password
+        el = wd.find_element_by_css_selector('input:nth-of-type(2)')
+        el.send_keys('secret')
+
+        #Click button Login
+        el = wd.find_element_by_css_selector('input[type="submit"]')
+        el.click()
+
+    def open_home_page(self, wd):
+        wd.get('http://localhost/addressbook')
 
     def tearDown(self):
         self.wd.quit()

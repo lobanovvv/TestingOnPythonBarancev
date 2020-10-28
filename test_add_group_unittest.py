@@ -2,7 +2,7 @@
 
 from selenium import webdriver
 from random import shuffle
-from groups import Groups
+from model.groups import Groups
 import time, unittest
 
 class test_add_group(unittest.TestCase):

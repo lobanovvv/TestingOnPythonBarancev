@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from selenium import webdriver
-from groups import Groups
-from application import Application
+from model.groups import Groups
+from fixture.application import Application
 import time, pytest
 
 @pytest.fixture

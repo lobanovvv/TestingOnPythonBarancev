@@ -22,7 +22,25 @@ class GroupHelper:
     
     def delete_first_group(self):
         wd = self.app.wd
-        #Select first element
-        wd.find_element_by_name('selected[]').click()
-        #Delete element
         wd.find_element_by_name('delete').click()
+
+    def select_first_element(self):
+        wd = self.app.wd
+        wd.find_element_by_name('selected[]').click()
+
+    def click_to_edit_button(self):
+        wd = self.app.wd
+        wd.find_element_by_name('edit').click()
+
+    def change_current_field_value(self, field_name, new_value):
+        wd = self.app.wd
+        if new_value is not None:
+            el = wd.find_element_by_name(field_name)
+            el.click()
+            el.clear()
+            el.send_keys(new_value)
+
+    def change_all_value(self, groups):
+        self.change_current_field_value("group_name", groups.name)
+        self.change_current_field_value("group_header", groups.header)
+        self.change_current_field_value("group_footer", groups.footer)

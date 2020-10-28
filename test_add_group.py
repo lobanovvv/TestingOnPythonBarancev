@@ -5,9 +5,10 @@ from groups import Groups
 from application import Application
 import time, pytest
 
-@pytest.fixture()
-def app():
+@pytest.fixture
+def app(request):
     fixture = Application()
+    request.addfinalizer(fixture.destroy)
     return fixture
 
 def test_add_group(app):

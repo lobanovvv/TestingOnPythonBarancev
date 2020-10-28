@@ -3,3 +3,10 @@ __pycache__/application.cpython-38.pyc
 __pycache__/test_add_group_base.cpython-38-pytest-6.0.1.pyc
 __pycache__/test_add_group_unittest.cpython-38-pytest-6.0.1.pyc
 __pycache__/test_add_group.cpython-38-pytest-6.0.1.pyc
+.vscode/settings.json
+test/__pycache__/__init__.cpython-38.pyc
+test/__pycache__/test_add_group.cpython-38-pytest-6.0.1.pyc
+__pycache__/
+fixture/__pycache__
+model/__pycache__
+test/__pycache__

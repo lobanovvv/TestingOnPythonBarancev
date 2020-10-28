@@ -17,6 +17,3 @@ def test_add_group(app):
     app.group.open_group_page()
     app.group.create_group(Groups(name="b", header="b", footer="b"))
     app.session.logout()
-
-if __name__ == '__main__':
-    pytest.main()

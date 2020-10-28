@@ -13,10 +13,10 @@ def app(request):
 
 def test_add_group(app):
     app.open_home_page()
-    app.login(name='admin', password='secret')
-    app.open_group_page()
-    app.create_group(Groups(name="b", header="b", footer="b"))
-    app.logout()
+    app.session.login(name='admin', password='secret')
+    app.group.open_group_page()
+    app.group.create_group(Groups(name="b", header="b", footer="b"))
+    app.session.logout()
 
 if __name__ == '__main__':
     pytest.main()

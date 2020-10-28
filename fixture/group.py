@@ -5,8 +5,7 @@ class GroupHelper:
 
     def open_group_page(self):
         wd = self.app.wd
-        el = wd.find_element_by_link_text('groups')
-        el.click()
+        wd.find_element_by_link_text('groups').click()
 
     def create_group(self, groups):
         wd = self.app.wd

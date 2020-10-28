@@ -10,26 +10,21 @@ wd.get('http://localhost/addressbook')
 #LOGIN
 #Enter login
 time.sleep(1)
-el = wd.find_element_by_css_selector('input:nth-of-type(1)')
-el.send_keys('admin')
+wd.find_element_by_css_selector('input:nth-of-type(1)').send_keys('admin')
 
 #Enter password
-el = wd.find_element_by_css_selector('input:nth-of-type(2)')
-el.send_keys('secret')
+wd.find_element_by_css_selector('input:nth-of-type(2)').send_keys('secret')
 
 #Click button Login
-el = wd.find_element_by_css_selector('input[type="submit"]')
-el.click()
+wd.find_element_by_css_selector('input[type="submit"]').click()
 
 
 #GROUP
 #Jump to group tab
-el = wd.find_element_by_link_text('groups')
-el.click()
+wd.find_element_by_link_text('groups').click()
 
 #Create new group
-el = wd.find_element_by_css_selector('input[name="new"]:nth-of-type(1)')
-el.click()
+wd.find_element_by_css_selector('input[name="new"]:nth-of-type(1)').click()
 
 #Enter value in fields
 el_name = [
@@ -45,7 +40,6 @@ for i in el_name:
     el.send_keys(abcdefg)
 
 #Submit
-el = wd.find_element_by_css_selector("input[type=submit]")
-el.click()
+wd.find_element_by_css_selector("input[type=submit]").click()
 
 wd.quit()

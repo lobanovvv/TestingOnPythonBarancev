@@ -6,7 +6,7 @@ class Application:
 
     def __init__(self):
         self.wd = webdriver.Chrome()
-        self.wd.implicitly_wait(3)
+        self.wd.implicitly_wait(10)
         self.wd.set_window_size(1920,1080)
 
         self.session = SessionHelper(self)

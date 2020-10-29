@@ -10,3 +10,4 @@ __pycache__/
 fixture/__pycache__/
 model/__pycache__/
 test/__pycache__/
+debug.log

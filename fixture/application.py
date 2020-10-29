@@ -19,3 +19,12 @@ class Application:
     def destroy(self):
         wd = self.wd
         wd.quit()
+
+    def is_valid(self):
+        wd = self.wd
+        try:
+            wd.current_url
+            return True
+        except:
+            return False
+    
